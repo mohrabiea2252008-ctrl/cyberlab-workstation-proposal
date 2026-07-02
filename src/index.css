@@ -1,33 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+/* ==========================================================================
+   THEME CONFIGURATION - BRIGHT & HIGH CONTRAST LIGHT MODE
+   ========================================================================== */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   
-  --color-brand-cyan: #00f2ff;
-  --color-brand-teal: #74f5ff;
-  --color-brand-dark: #0a0b10;
-  --color-brand-surface: #121318;
-  --color-brand-surface-card: #181920;
-  --color-brand-amber: #ffb800;
-  --color-brand-emerald: #10b981;
-  --color-brand-rose: #f43f5e;
+  /* Vibrant Bright Accents */
+  --color-brand-cyan: #0066cc;        /* High-contrast Cobalt Blue instead of neon cyan */
+  --color-brand-teal: #0d9488;        /* Clear Deep Teal for secondary focus */
+  --color-brand-amber: #b45309;       /* Darker amber for readability on light backgrounds */
+  --color-brand-emerald: #15803d;     /* Deep crisp green for positive statuses */
+  --color-brand-rose: #be123c;        /* High-visibility red for alerts */
+
+  /* Bright Background Layouts */
+  --color-brand-dark: #f8fafc;        /* Crisp, bright off-white workspace background */
+  --color-brand-surface: #ffffff;     /* Pure white for layout structure panels */
+  --color-brand-surface-card: #f1f5f9;/* Light grey for prominent inner card groupings */
 }
 
-/* Custom styles for high-fidelity cybersecurity dashboard */
+/* ==========================================================================
+   VISUAL EFFECTS - RETUNED FOR LIGHT BACKGROUNDS
+   ========================================================================== */
 
+/* Subtle Technical Grid Matrix */
 .circuit-pattern {
-  background-image: radial-gradient(rgba(116, 245, 255, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 102, 204, 0.06) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
+/* Bright Soft Scanning Guide Line */
 .scanline {
   width: 100%;
   height: 2px;
-  background: linear-gradient(to right, transparent, #00f2ff, transparent);
+  background: linear-gradient(to right, transparent, var(--color-brand-cyan), transparent);
   position: absolute;
-  opacity: 0.3;
+  opacity: 0.15;
   pointer-events: none;
   animation: scan 6s linear infinite;
 }
@@ -37,13 +47,25 @@
   100% { top: 102%; }
 }
 
+/* High Contrast Element Pulse */
 .pulse-glow {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; filter: drop-shadow(0 0 2px #00f2ff); }
-  50% { opacity: 0.5; filter: drop-shadow(0 0 12px #00f2ff); }
+  0%, 100% { 
+    opacity: 1; 
+    filter: drop-shadow(0 0 3px rgba(0, 102, 204, 0.3)); 
+  }
+  50% { 
+    opacity: 0.7; 
+    filter: drop-shadow(0 0 8px rgba(0, 102, 204, 0.1)); 
+  }
+}
+
+/* UI Glitch / Critical Status Vibration */
+.throttling-active {
+  animation: throttle-shake 0.15s infinite;
 }
 
 @keyframes throttle-shake {
@@ -54,32 +76,38 @@
   80% { transform: translateX(2px) translateY(2px); }
 }
 
-.throttling-active {
-  animation: throttle-shake 0.15s infinite;
+/* ==========================================================================
+   BORDERS & CONTAINER SHADOWS - RETUNED FOR ACCESSIBILITY
+   ========================================================================== */
+
+.glow-border {
+  border: 1px solid rgba(0, 102, 204, 0.12);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Custom Scrollbars */
+.glow-border-active {
+  border: 1px solid var(--color-brand-cyan);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+}
+
+/* ==========================================================================
+   CUSTOM INTERACTIVE SCROLLBARS
+   ========================================================================== */
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
+
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(10, 11, 16, 0.5);
+  background: rgba(241, 245, 249, 0.8);
 }
+
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(0, 242, 255, 0.2);
+  background: rgba(0, 102, 204, 0.25);
   border-radius: 9999px;
 }
+
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 242, 255, 0.5);
-}
-
-.glow-border {
-  border: 1px solid rgba(0, 242, 255, 0.15);
-  box-shadow: 0 0 15px rgba(0, 242, 255, 0.03);
-}
-
-.glow-border-active {
-  border: 1px solid rgba(0, 242, 255, 0.5);
-  box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
+  background: rgba(0, 102, 204, 0.5);
 }

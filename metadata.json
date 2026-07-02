@@ -1,0 +1,6 @@
+{
+  "name": "CyberLab Workstation Proposal",
+  "description": "A high-fidelity academic hardware assessment dashboard proposing a custom cybersecurity workstation upgrade for the 2026 CS curriculum.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

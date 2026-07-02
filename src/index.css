@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-cyan: #00f2ff;
+  --color-brand-teal: #74f5ff;
+  --color-brand-dark: #0a0b10;
+  --color-brand-surface: #121318;
+  --color-brand-surface-card: #181920;
+  --color-brand-amber: #ffb800;
+  --color-brand-emerald: #10b981;
+  --color-brand-rose: #f43f5e;
+}
+
+/* Custom styles for high-fidelity cybersecurity dashboard */
+
+.circuit-pattern {
+  background-image: radial-gradient(rgba(116, 245, 255, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.scanline {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00f2ff, transparent);
+  position: absolute;
+  opacity: 0.3;
+  pointer-events: none;
+  animation: scan 6s linear infinite;
+}
+
+@keyframes scan {
+  0% { top: -2%; }
+  100% { top: 102%; }
+}
+
+.pulse-glow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 2px #00f2ff); }
+  50% { opacity: 0.5; filter: drop-shadow(0 0 12px #00f2ff); }
+}
+
+@keyframes throttle-shake {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  20% { transform: translateX(-2px) translateY(1px); }
+  40% { transform: translateX(2px) translateY(-1px); }
+  60% { transform: translateX(-1px) translateY(-2px); }
+  80% { transform: translateX(2px) translateY(2px); }
+}
+
+.throttling-active {
+  animation: throttle-shake 0.15s infinite;
+}
+
+/* Custom Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(10, 11, 16, 0.5);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 255, 0.2);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 255, 0.5);
+}
+
+.glow-border {
+  border: 1px solid rgba(0, 242, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.03);
+}
+
+.glow-border-active {
+  border: 1px solid rgba(0, 242, 255, 0.5);
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
+}
